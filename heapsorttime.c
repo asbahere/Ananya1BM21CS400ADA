@@ -7,18 +7,20 @@ void swap(int *a,int *b)
   *b=temp;
 }
 
-void delay()
+
+
+/*void delay()
 {
  int i,n;
  for(i=0;i<100000;i++)
  {
    n=100/50;
  }
-}
+} */
 
 void heap(int a[],int n,int i)
 {
-  delay();
+  //delay();
 
   int large=i;
   int l=2*i+1;
@@ -50,15 +52,15 @@ void heapsort(int a[],int n)
     }
 }
 
- /* void printarray(int a[],int n)
+  void printarray(int a[],int n)
 {
   int i;
-  for(i=0;i<n;i++)
+  for(i=0;i<n;++i)
     printf("%d",a[i]);
-    printf("\n");
-} */
+  printf("\n");
+}
 
-int main()
+/*int main()
 {
     clock_t start,end;
     srand(time(0));
@@ -79,5 +81,27 @@ int main()
       printarray(a,n);
     heapsort(a,n);
     printf("Sorted array:\n");
-    printarray(a,n); */
+    printarray(a,n);} */
+
+
+
+int main()
+{
+    int n,i,j,temp,c;
+    printf("Enter value of N:");
+    scanf("%d",&n);
+    int a[10];
+    printf("Generating random nos. :\n");
+    for(c=0;c<n;c++)
+    {
+        a[c]=rand()%100+1;
+        printf("%d\t\n",a[c]);
+    }
+    clock_t start=clock();
+    heapsort(a,n);
+    clock_t end=clock();
+    printf("Sorted array is \t");
+    printarray(a,n);
+    double time=(double)(end-start)/CLOCKS_PER_SEC;
+    printf("\n Execution time: %.10fseconds\n",time);
 }
